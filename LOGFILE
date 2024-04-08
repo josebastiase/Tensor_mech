@@ -1,0 +1,101 @@
+
+[33m
+*** Warning, This code is deprecated and will be removed in future versions:
+The 'Modules/FluidProperties/*' syntax is deprecated. Use 'FluidProperties/*' instead.[39m
+Stack frames: 28
+0: libMesh::print_trace(std::ostream&)
+1: void moose::internal::mooseDeprecatedStream<ConsoleStream const, char const (&) [87]>(ConsoleStream const&, bool, bool, char const (&) [87])
+2: /home/joseb/projects/moose/modules/fluid_properties/lib/libfluid_properties-dbg.so.0(+0x308fb9) [0x7fccaa068fb9]
+3: AddFluidPropertiesDeprecatedAction::AddFluidPropertiesDeprecatedAction(InputParameters const&)
+4: /home/joseb/projects/moose/modules/fluid_properties/lib/libfluid_properties-dbg.so.0(+0x314366) [0x7fccaa074366]
+5: /home/joseb/projects/moose/modules/fluid_properties/lib/libfluid_properties-dbg.so.0(+0x313fe8) [0x7fccaa073fe8]
+6: /home/joseb/projects/moose/modules/fluid_properties/lib/libfluid_properties-dbg.so.0(+0x313a80) [0x7fccaa073a80]
+7: /home/joseb/projects/moose/modules/fluid_properties/lib/libfluid_properties-dbg.so.0(+0x313315) [0x7fccaa073315]
+8: /home/joseb/projects/moose/modules/fluid_properties/lib/libfluid_properties-dbg.so.0(+0x312f7e) [0x7fccaa072f7e]
+9: /home/joseb/projects/moose/modules/fluid_properties/lib/libfluid_properties-dbg.so.0(+0x312d1f) [0x7fccaa072d1f]
+10: /home/joseb/projects/moose/modules/fluid_properties/lib/libfluid_properties-dbg.so.0(+0x3129ef) [0x7fccaa0729ef]
+11: /home/joseb/projects/moose/modules/fluid_properties/lib/libfluid_properties-dbg.so.0(+0x312584) [0x7fccaa072584]
+12: RegistryEntry<AddFluidPropertiesDeprecatedAction>::buildAction(InputParameters const&)
+13: ActionFactory::create(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, InputParameters&)
+14: Parser::walkRaw(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, hit::Node*)
+15: Parser::walk(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, hit::Node*)
+16: hit::Node::walk(hit::Walker*, hit::NodeType, hit::TraversalOrder)
+17: hit::Node::walk(hit::Walker*, hit::NodeType, hit::TraversalOrder)
+18: hit::Node::walk(hit::Walker*, hit::NodeType, hit::TraversalOrder)
+19: hit::Node::walk(hit::Walker*, hit::NodeType, hit::TraversalOrder)
+20: /home/joseb/projects/moose/framework/libmoose-dbg.so.0(+0x2dcf1d2) [0x7fcca85701d2]
+21: Parser::parse(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&, std::optional<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > const&)
+22: MooseApp::setupOptions()
+23: MooseApp::run()
+24: main
+25: /lib/x86_64-linux-gnu/libc.so.6(+0x29d90) [0x7fcc9af1cd90]
+26: __libc_start_main
+27: /home/joseb/projects/moose/modules/porous_flow/porous_flow-dbg(+0x3079) [0x557d17db8079]
+
+Framework Information:
+MOOSE Version:           git commit 5d13e7f842 on 2024-01-04
+LibMesh Version:         
+PETSc Version:           3.20.1
+SLEPc Version:           3.20.0
+Current Time:            Tue Apr  2 05:49:16 2024
+Executable Timestamp:    Tue Apr  2 04:33:03 2024
+
+Parallelism:
+  Num Processors:          1
+  Num Threads:             1
+
+Mesh: 
+  Parallel Type:           replicated
+  Mesh Dimension:          2
+  Spatial Dimension:       2
+  Nodes:                   200
+  Elems:                   99
+  Num Subdomains:          1
+
+Nonlinear System:
+  Num DOFs:                600
+  Num Local DOFs:          600
+  Variables:               { "disp_x" "disp_y" "porepressure" } 
+  Finite Element Types:    "LAGRANGE" 
+  Approximation Orders:    "FIRST" 
+
+Auxiliary System:
+  Num DOFs:                1584
+  Num Local DOFs:          1584
+  Variables:               { "porosity" "bulk" "shear" "perm" "darcy_vel_x" ... "stress_yy" "stress_yz" 
+                             "stress_zx" "stress_zy" "stress_zz" } 
+  Finite Element Types:    "MONOMIAL" 
+  Approximation Orders:    "CONSTANT" 
+
+Execution Information:
+  Executioner:             Transient
+  TimeStepper:             ConstantDT
+  TimeIntegrator:          ImplicitEuler
+  Solver Mode:             NEWTON
+  MOOSE Preconditioner:    SMP
+
+[31m
+
+Assertion `i < _size' failed
+Access out of bounds in MooseArray (i: 4294967295 size: 4)
+at /home/joseb/projects/moose/framework/build/header_symlinks/MooseArray.h, line 275[39m
+Stack frames: 14
+0: libMesh::print_trace(std::ostream&)
+1: /home/joseb/projects/moose/modules/tensor_mechanics/lib/libtensor_mechanics-dbg.so.0(+0x4a461f) [0x7fccaa63561f]
+2: IsotropicElasticModulusFromVarTempl<false, RankFourTensorTempl<double> >::residualSetup()
+3: IsotropicElasticModulusFromVarTempl<false, RankFourTensorTempl<double> >::initialSetup()
+4: MooseObjectWarehouse<MaterialBase>::initialSetup(unsigned int) const
+5: MaterialWarehouse::initialSetup(unsigned int) const
+6: FEProblemBase::initialSetup()
+7: Transient::init()
+8: MooseApp::executeExecutioner()
+9: MooseApp::run()
+10: main
+11: /lib/x86_64-linux-gnu/libc.so.6(+0x29d90) [0x7fcc9af1cd90]
+12: __libc_start_main
+13: /home/joseb/projects/moose/modules/porous_flow/porous_flow-dbg(+0x3079) [0x557d17db8079]
+[0] /home/joseb/projects/moose/framework/build/header_symlinks/MooseArray.h, line 275, compiled Apr  2 2024 at 04:30:00
+application called MPI_Abort(MPI_COMM_WORLD, 1) - process 0
+[unset]: write_line error; fd=-1 buf=:cmd=abort exitcode=1
+:
+system msg for write_line failure : Bad file descriptor
