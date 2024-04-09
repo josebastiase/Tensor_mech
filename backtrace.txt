@@ -1,0 +1,45 @@
+#0  0x00007fffe6cb0820 in PMPI_Abort () from /home/jose/miniforge/envs/moose/lib/libmpi.so.12
+#1  0x00007ffff2057895 in MooseArray<double>::operator[] (this=0x555555cc6cb0, i=4294967295)
+    at /home/jose/projects/moose/framework/build/header_symlinks/MooseArray.h:275
+#2  0x00007ffff257b5d5 in IsotropicElasticModulusFromVarTempl<false, RankFourTensorTempl<double> >::residualSetup (this=0x555555fc0160)
+    at /home/jose/projects/moose/modules/solid_mechanics/src/materials/IsotropicElasticModulusFromVar.C:39
+#3  0x00007ffff257b57b in IsotropicElasticModulusFromVarTempl<false, RankFourTensorTempl<double> >::initialSetup (this=0x555555fc0160)
+    at /home/jose/projects/moose/modules/solid_mechanics/build/header_symlinks/IsotropicElasticModulusFromVar.h:17
+#4  0x00007ffff63794e3 in MooseObjectWarehouse<MaterialBase>::initialSetup (this=0x555555c13a20, tid=0)
+    at /home/jose/projects/moose/framework/build/header_symlinks/MooseObjectWarehouse.h:155
+#5  0x00007ffff636382d in MaterialWarehouse::initialSetup (this=0x555555c13a20, tid=0)
+    at /home/jose/projects/moose/framework/src/materials/MaterialWarehouse.C:44
+#6  0x00007ffff6748d58 in FEProblemBase::initialSetup (this=0x555555c12260)
+    at /home/jose/projects/moose/framework/src/problems/FEProblemBase.C:976
+#7  0x00007ffff4a18fce in Transient::init (this=0x555555c6f5d0)
+    at /home/jose/projects/moose/framework/src/executioners/Transient.C:225
+#8  0x00007ffff5c5784a in MooseApp::executeExecutioner (this=0x55555579e0b0)
+    at /home/jose/projects/moose/framework/src/base/MooseApp.C:1159
+#9  0x00007ffff5c5e9b3 in MooseApp::run (this=0x55555579e0b0)
+    at /home/jose/projects/moose/framework/src/base/MooseApp.C:1543
+#10 0x0000555555557db0 in Moose::main<PorousFlowTestApp> (argc=3, argv=0x7fffffffc258)
+    at /home/jose/projects/moose/framework/build/header_symlinks/MooseMain.h:47
+#11 0x00005555555575f4 in main (argc=3, argv=0x7fffffffc258)
+    at /home/jose/projects/moose/modules/porous_flow/src/main.C:17
+(gdb) bt &> bracktrace.txt
+A syntax error in expression, near `> bracktrace.txt'.
+(gdb) bt
+#0  0x00007fffe6cb0820 in PMPI_Abort () from /home/jose/miniforge/envs/moose/lib/libmpi.so.12
+#1  0x00007ffff2057895 in MooseArray<double>::operator[] (this=0x555555cc6cb0, i=4294967295)
+    at /home/jose/projects/moose/framework/build/header_symlinks/MooseArray.h:275
+#2  0x00007ffff257b5d5 in IsotropicElasticModulusFromVarTempl<false, RankFourTensorTempl<double> >::residualSetup (this=0x555555fc0160)
+    at /home/jose/projects/moose/modules/solid_mechanics/src/materials/IsotropicElasticModulusFromVar.C:39
+#3  0x00007ffff257b57b in IsotropicElasticModulusFromVarTempl<false, RankFourTensorTempl<double> >::initialSetup (this=0x555555fc0160)
+    at /home/jose/projects/moose/modules/solid_mechanics/build/header_symlinks/IsotropicElasticModulusFromVar.h:17
+#4  0x00007ffff63794e3 in MooseObjectWarehouse<MaterialBase>::initialSetup (this=0x555555c13a20, tid=0)
+    at /home/jose/projects/moose/framework/build/header_symlinks/MooseObjectWarehouse.h:155
+#5  0x00007ffff636382d in MaterialWarehouse::initialSetup (this=0x555555c13a20, tid=0)
+    at /home/jose/projects/moose/framework/src/materials/MaterialWarehouse.C:44
+#6  0x00007ffff6748d58 in FEProblemBase::initialSetup (this=0x555555c12260) at /home/jose/projects/moose/framework/src/problems/FEProblemBase.C:976
+#7  0x00007ffff4a18fce in Transient::init (this=0x555555c6f5d0) at /home/jose/projects/moose/framework/src/executioners/Transient.C:225
+#8  0x00007ffff5c5784a in MooseApp::executeExecutioner (this=0x55555579e0b0) at /home/jose/projects/moose/framework/src/base/MooseApp.C:1159
+#9  0x00007ffff5c5e9b3 in MooseApp::run (this=0x55555579e0b0) at /home/jose/projects/moose/framework/src/base/MooseApp.C:1543
+#10 0x0000555555557db0 in Moose::main<PorousFlowTestApp> (argc=3, argv=0x7fffffffc258)
+    at /home/jose/projects/moose/framework/build/header_symlinks/MooseMain.h:47
+#11 0x00005555555575f4 in main (argc=3, argv=0x7fffffffc258) at /home/jose/projects/moose/modules/porous_flow/src/main.C:17
+
